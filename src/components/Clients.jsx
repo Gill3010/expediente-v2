@@ -18,7 +18,7 @@ const Clients = () => {
   const infiniteLogos = [...clientLogos, ...clientLogos];
 
   return (
-    <section className="bg-azulOscuro text-blancoTexto py-16">
+    <section className="bg-gradient-to-r from-[#1B5E20] via-[#2E7D32] to-[#00E5FF] text-white py-16">
       <div className="max-w-7xl mx-auto text-center px-4">
         <h2 className="text-4xl font-semibold mb-12">Nuestros Clientes</h2>
         <div className="overflow-hidden relative">

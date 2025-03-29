@@ -29,15 +29,20 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-azulOscuro py-8 w-full">
+    <section className="bg-gradient-to-r from-[#1B5E20] via-[#2E7D32] to-[#00E5FF] py-8 w-full">
       <div className="max-w-7xl mx-auto text-center px-4">
         <h2 className="text-3xl font-semibold text-blancoTexto mb-12">¡Contáctanos!</h2>
 
         {submitted && (
-          <p className="text-verdeBoton mb-4">¡Gracias! Tu mensaje ha sido enviado con éxito.</p>
+          <p className="text-verdeBoton mb-4">
+            ¡Gracias! Tu mensaje ha sido enviado con éxito.
+          </p>
         )}
 
-        <form onSubmit={handleSubmit} className="mt-8 max-w-lg mx-auto bg-azulOscuro p-8 rounded-xl shadow-lg w-full">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8 max-w-lg mx-auto bg-gradient-to-r from-[#1B5E20] via-[#2E7D32] to-[#00E5FF] p-8 rounded-xl shadow-lg w-full"
+        >
           <div className="space-y-4">
             <input
               type="text"

@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithub, FaRegEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-azulOscuro text-blancoTexto py-8">
+    <footer className="bg-gradient-to-r from-[#1B5E20] via-[#2E7D32] to-[#00E5FF] text-blancoTexto py-8">
       <div className="max-w-7xl mx-auto text-center flex flex-col sm:flex-row justify-between items-center px-4">
         {/* Redes sociales */}
         <div className="flex space-x-6 mb-4 sm:mb-0">
@@ -34,7 +34,7 @@ const Footer = () => {
 
         {/* Texto de derechos reservados */}
         <p className="text-grisClaro text-sm">
-          ©2024 Innova Proyectos. Todos los derechos reservados.
+          ©2025 Innova Proyectos. Todos los derechos reservados.
         </p>
       </div>
     </footer>
