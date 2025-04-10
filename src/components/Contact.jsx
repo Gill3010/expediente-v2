@@ -29,15 +29,21 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-[#071C37] py-8 w-full"> {/* Cambié py-16 a py-8 */}
+    <section
+      className="py-8 w-full"
+      style={{
+        background: 'linear-gradient(to right, #1B5E20, #00E5FF)',
+        color: 'white',
+      }}
+    >
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-white mb-12">¡Contáctanos!</h2>
+        <h2 className="text-3xl font-semibold mb-12" style={{ color: 'white' }}>¡Contáctame!</h2>
 
         {submitted && (
           <p className="text-green-500 mb-4">¡Gracias! Tu mensaje ha sido enviado con éxito.</p>
         )}
 
-        <form onSubmit={handleSubmit} className="mt-8 max-w-lg mx-auto bg-[#071C37] p-8 rounded-lg shadow-lg w-full">
+        <form onSubmit={handleSubmit} className="mt-8 max-w-lg mx-auto p-8 rounded-lg shadow-lg w-full" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
           <div className="space-y-4">
             <input
               type="text"
@@ -45,7 +51,8 @@ const Contact = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Nombre"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white bg-[#071C37] placeholder:text-gray-400"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white bg-transparent placeholder:text-gray-300"
+              style={{ color: 'white' }}
             />
             <input
               type="email"
@@ -53,18 +60,21 @@ const Contact = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Correo electrónico"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white bg-[#071C37] placeholder:text-gray-400"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-white bg-transparent placeholder:text-gray-300"
+              style={{ color: 'white' }}
             />
             <textarea
               name="subject"
               value={formData.subject}
               onChange={handleChange}
               placeholder="Asunto"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 h-32 resize-none text-white bg-[#071C37] placeholder:text-gray-400"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 h-32 resize-none text-white bg-transparent placeholder:text-gray-300"
+              style={{ color: 'white' }}
             ></textarea>
             <button
               type="submit"
-              className="w-full py-3 bg-[#00E6D2] text-white rounded-md hover:bg-teal-600 transition duration-300"
+              className="w-full py-3 rounded-md hover:bg-teal-600 transition duration-300"
+              style={{ backgroundColor: '#00E6D2', color: 'white' }}
             >
               Enviar
             </button>

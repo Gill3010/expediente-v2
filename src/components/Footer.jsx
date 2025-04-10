@@ -1,40 +1,49 @@
-import { FaLinkedin, FaGithub, FaRegEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#071C37] text-white py-8">
+    <footer
+      className="py-8"
+      style={{
+        background: 'linear-gradient(to right, #1B5E20, #00E5FF)',
+        color: 'white',
+      }}
+    >
       <div className="max-w-7xl mx-auto text-center flex justify-between items-center">
-        {/* Redes sociales */}
+        
         <div className="flex space-x-6 mb-4">
           <a
-            href="https://www.linkedin.com/in/tu-linkedin"
+            href="https://www.linkedin.com/in/israel-samuels-g-201419197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-[#00E6D2] rounded-full hover:bg-teal-600 transition duration-300"
+            className="p-3 rounded-full hover:bg-teal-600 transition duration-300"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={20} color="#0A66C2" /> 
           </a>
           <a
-            href="https://github.com/tu-github"
+            href="https://github.com/Gill3010"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-[#00E6D2] rounded-full hover:bg-teal-600 transition duration-300"
+            className="p-3 rounded-full hover:bg-teal-600 transition duration-300"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           >
-            <FaGithub size={20} />
+            <FaGithub size={20} color="#171515" /> 
           </a>
           <a
-            href="https://twitter.com/tu-twitter"
+            href="https://wa.me/50765498362"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-[#00E6D2] rounded-full hover:bg-teal-600 transition duration-300"
+            className="p-3 rounded-full hover:bg-teal-600 transition duration-300"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
           >
-            <FaRegEnvelope size={20} />
+            <FaWhatsapp size={20} color="#25D366" /> 
           </a>
         </div>
 
-        {/* Texto de derechos reservados */}
-        <p className="text-gray-400 text-sm">
-          ©2024 Innova Proyectos. Todos los derechos reservados.
+        
+        <p className="text-sm" style={{ color: '#E0F7FA' }}>
+          ©2025 Innova Proyectos. Todos los derechos reservados.
         </p>
       </div>
     </footer>
