@@ -7,6 +7,7 @@ import TeamMember from './components/TeamMember';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LogosCarousel from './components/LogosCarousel';
+import OpenSourceSkills from './components/OpenSourceSkills';
 
 const App = () => {
   return (
@@ -23,6 +24,10 @@ const App = () => {
 
       <section id="habilidades">
         <Skills />
+      </section>
+      
+      <section id="habilidades-abiertas">
+        <OpenSourceSkills />
       </section>
       
       <section id="equipo">

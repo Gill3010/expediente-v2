@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Universidad1 from '../assets/up.jpg';
 import Universidad2 from '../assets/udellpa.png';
@@ -31,7 +33,18 @@ const LogosCarousel = () => {
   ];
 
   const toggleAutoPlay = () => {
-    setAutoPlay(!autoPlay);
+    setAutoPlay(prev => {
+      const newAutoPlay = !prev;
+      // Forzar la actualización del autoplay cuando cambia el estado
+      if (sliderRef.current) {
+        if (newAutoPlay) {
+          sliderRef.current.slickPlay(); // Reanudar el autoplay
+        } else {
+          sliderRef.current.slickPause(); // Pausar el autoplay
+        }
+      }
+      return newAutoPlay;
+    });
   };
 
   const next = () => {
@@ -86,15 +99,25 @@ const LogosCarousel = () => {
     Universidad10,
   ];
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+    });
+  }, []);
+
   return (
-    <div className="w-full py-16" style={{ background: 'linear-gradient(to right, #1B5E20, #00E5FF)' }}>
-      <h2 className="text-3xl text-center text-white mb-8">Proyectos realizados</h2>
+    <div className="w-full py-16" style={{ background: '#111111' }}>
+      <h2 className="text-3xl text-center text-[#2CFF05] mb-8" data-aos="fade-up">
+        Proyectos realizados
+      </h2>
       <div className="relative max-w-6xl mx-auto px-4">
         <Slider ref={sliderRef} {...settings}>
           {logos.map((logo, index) => (
-            <div key={index} className="px-2">
+            <div key={index} className="px-2" data-aos="fade-up">
               <div 
-                className="flex justify-center items-center p-4 rounded-lg shadow-md bg-white bg-opacity-20"
+                className="flex justify-center items-center p-4 rounded-lg shadow-md bg-[#2CFF05] bg-opacity-20"
                 style={{
                   height: '160px', 
                   justifyContent: 'center',
@@ -125,13 +148,13 @@ const LogosCarousel = () => {
         </Slider>
         <button
           onClick={previous}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full z-10 hover:bg-opacity-75"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75"
         >
           <FaArrowLeft size={20} />
         </button>
         <button
           onClick={next}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full z-10 hover:bg-opacity-75"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75"
         >
           <FaArrowRight size={20} />
         </button>
@@ -139,7 +162,7 @@ const LogosCarousel = () => {
       <div className="text-center mt-8">
         <button
           onClick={toggleAutoPlay}
-          className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-bold py-2 px-6 rounded-full transition"
+          className="bg-white bg-opacity-20 hover:bg-opacity-30 text-[#2cff05] font-bold py-2 px-6 rounded-full transition"
         >
           {autoPlay ? '⏸ Pausar' : '▶ Reproducir'}
         </button>
