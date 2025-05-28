@@ -48,12 +48,16 @@ const Contact = () => {
     >
       <div className="max-w-7xl mx-auto text-center">
         <h2
-          className="text-3xl font-semibold mb-12"
+          className="text-3xl font-semibold mb-4"
           style={{ color: '#2CFF05' }}
-          data-aos="fade-up"
         >
           ¡Contáctame!
         </h2>
+
+        {/* Línea animada debajo del título */}
+        <div className="mt-2 mb-12 w-44 h-1 mx-auto overflow-hidden relative">
+          <div className="absolute w-full h-full animate-slide-line bg-[#2CFF05]"></div>
+        </div>
 
         {submitted && (
           <p className="text-green-500 mb-4" data-aos="fade-up">
@@ -94,12 +98,21 @@ const Contact = () => {
               data-aos="fade-up"
             ></textarea>
             <button
-              type="submit"
-              className="w-full py-3 rounded-md transition duration-300 bg-[#2CFF05] text-black hover:bg-white hover:text-black"
-              data-aos="fade-up"
-            >
-              Enviar
-            </button>
+  type="submit"
+  className="w-full py-3 rounded-md transition duration-300 bg-[#2CFF05] text-black hover:bg-white hover:text-black"
+  style={{
+    transition: 'all 0.3s ease-in-out',
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.boxShadow = '0 0 15px #2CFF05';
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.boxShadow = 'none';
+  }}
+  data-aos="fade-up"
+>
+  Enviar
+</button>
           </div>
         </form>
       </div>

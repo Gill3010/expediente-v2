@@ -109,13 +109,20 @@ const LogosCarousel = () => {
 
   return (
     <div className="w-full py-16" style={{ background: '#111111' }}>
-      <h2 className="text-3xl text-center text-[#2CFF05] mb-8" data-aos="fade-up">
+      {/* Título sin animación */}
+      <h2 className="text-3xl text-center text-[#2CFF05] mb-8">
         Proyectos realizados
       </h2>
+
+      {/* Línea animada debajo del título */}
+      <div className="mt-2 mb-12 w-44 h-1 mx-auto overflow-hidden relative">
+        <div className="absolute w-full h-full animate-slide-line bg-[#2CFF05]"></div>
+      </div>
+
       <div className="relative max-w-6xl mx-auto px-4">
         <Slider ref={sliderRef} {...settings}>
           {logos.map((logo, index) => (
-            <div key={index} className="px-2" data-aos="fade-up">
+            <div key={index} className="px-2" data-aos="fade-up" data-aos-delay={index * 100}>
               <div 
                 className="flex justify-center items-center p-4 rounded-lg shadow-md bg-[#2CFF05] bg-opacity-20"
                 style={{
@@ -146,23 +153,29 @@ const LogosCarousel = () => {
             </div>
           ))}
         </Slider>
+
+        {/* Botón Anterior */}
         <button
           onClick={previous}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_0_20px_#2CFF05]"
         >
           <FaArrowLeft size={20} />
         </button>
+
+        {/* Botón Siguiente */}
         <button
           onClick={next}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75"
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_0_20px_#2CFF05]"
         >
           <FaArrowRight size={20} />
         </button>
       </div>
+
+      {/* Botón de Play/Pause */}
       <div className="text-center mt-8">
         <button
           onClick={toggleAutoPlay}
-          className="bg-white bg-opacity-20 hover:bg-opacity-30 text-[#2cff05] font-bold py-2 px-6 rounded-full transition"
+          className="bg-white bg-opacity-20 hover:bg-opacity-30 text-[#2cff05] font-bold py-2 px-6 rounded-full transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_0_20px_#2CFF05]"
         >
           {autoPlay ? '⏸ Pausar' : '▶ Reproducir'}
         </button>

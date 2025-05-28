@@ -16,7 +16,7 @@ const Footer = () => {
             href="https://www.linkedin.com/in/israel-samuels-g-201419197/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white hover:bg-gray-100 transition duration-300 shadow"
+            className="p-3 rounded-full bg-white hover:bg-gray-100 transition duration-300 shadow hover:shadow-[0_0_15px_#2CFF05]"
           >
             <FaLinkedin size={20} color="#0A66C2" />
           </a>
@@ -24,7 +24,7 @@ const Footer = () => {
             href="https://github.com/Gill3010"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white hover:bg-gray-100 transition duration-300 shadow"
+            className="p-3 rounded-full bg-white hover:bg-gray-100 transition duration-300 shadow hover:shadow-[0_0_15px_#2CFF05]"
           >
             <FaGithub size={20} color="#171515" />
           </a>
@@ -32,7 +32,7 @@ const Footer = () => {
             href="https://wa.me/50765498362"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white hover:bg-gray-100 transition duration-300 shadow"
+            className="p-3 rounded-full bg-white hover:bg-gray-100 transition duration-300 shadow hover:shadow-[0_0_15px_#2CFF05]"
           >
             <FaWhatsapp size={20} color="#25D366" />
           </a>
@@ -47,9 +47,9 @@ const Footer = () => {
         <hr className="border-t border-[#2CFF05] mb-4" />
 
         {/* Derechos reservados */}
-<p className="text-sm" style={{ color: '#ffff' }}>
-  <span style={{ color: '#2CFF05' }}>©2025 Innova Proyectos</span>. Todos los derechos reservados.
-</p>
+        <p className="text-sm" style={{ color: '#ffff' }}>
+          <span style={{ color: '#2CFF05' }}>©2025 Innova Proyectos</span>. Todos los derechos reservados.
+        </p>
 
         {/* Enlace a la página de contacto */}
         <div className="mt-4">

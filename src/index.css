@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animación de saludo */
 @keyframes wave {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(14deg); }
@@ -18,4 +19,43 @@
   display: inline-block;
   transform-origin: 70% 70%;
   animation: wave 2s infinite;
+}
+
+/* Animación de la línea deslizante */
+@keyframes slide-horizontal {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-line {
+  animation: slide-horizontal 2s ease-in-out infinite;
+}
+
+
+
+
+
+@layer utilities {
+  @keyframes slide-line {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-slide-line {
+    animation: slide-line 4s linear infinite;
+  }
 }
