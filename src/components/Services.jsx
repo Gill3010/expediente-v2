@@ -1,97 +1,81 @@
 import { useEffect } from 'react';
-import Cpanel from '../assets/Cpanel.webp';
-import Desarrollo2 from '../assets/Desarrollo2.jpg';
-import Integracion from '../assets/Integracion.jpg';
-import Seo from '../assets/Seo.webp';
+import { 
+  FaCode, 
+  FaPlug, 
+  FaServer, 
+  FaSearch 
+} from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Services = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: false,
+      duration: 500,
+      once: true,
+      easing: 'ease-in-out'
     });
   }, []);
 
-  const cardStyle = {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    boxShadow: '0 0 20px rgba(44, 255, 5, 0.6)',
-  };
+  const services = [
+    {
+      icon: <FaCode className="w-8 h-8 text-blue-600" />,
+      title: "Desarrollo de Aplicaciones Web",
+      description: "Creación de plataformas académicas y sistemas de gestión educativa personalizados, escalables y seguros.",
+      delay: 0
+    },
+    {
+      icon: <FaPlug className="w-8 h-8 text-blue-600" />,
+      title: "Integración de Sistemas",
+      description: "Conexión de plataformas educativas con sistemas existentes mediante APIs robustas y documentadas.",
+      delay: 50
+    },
+    {
+      icon: <FaServer className="w-8 h-8 text-blue-600" />,
+      title: "Administración de Servidores",
+      description: "Configuración y mantenimiento de entornos para instituciones educativas con alta disponibilidad.",
+      delay: 100
+    },
+    {
+      icon: <FaSearch className="w-8 h-8 text-blue-600" />,
+      title: "Optimización Académica",
+      description: "Mejora de la visibilidad y accesibilidad de plataformas educativas en línea.",
+      delay: 150
+    }
+  ];
 
   return (
-    <section
-      className="py-16"
-      style={{
-        backgroundColor: '#222222',
-        color: 'white',
-      }}
-    >
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold mb-4" style={{ color: '#2CFF05' }}>
-          Descubre lo que puedo hacer por ti
-        </h2>
-
-        {/* Línea animada debajo del título */}
-        <div className="mt-6 mb-12 w-44 h-1 mx-auto overflow-hidden relative">
-          <div className="absolute w-full h-full animate-slide-line bg-[#2CFF05]"></div>
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+            <span className="text-blue-600">Servicios</span> Especializados
+          </h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Soluciones tecnológicas diseñadas específicamente para instituciones educativas y centros de investigación
+          </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Desarrollo de aplicaciones web */}
-          <div
-            data-aos="fade-up"
-            className="service-card text-center py-8 px-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2"
-            style={cardStyle}
-          >
-            <img src={Desarrollo2} alt="Desarrollo de aplicaciones web" className="mx-auto mb-6 w-full h-48 object-cover rounded-lg" />
-            <h3 className="text-xl font-medium mb-4" style={{ color: '#2CFF05' }}>Desarrollo de aplicaciones web</h3>
-            <p className="text-sm" style={{ color: '#fff' }}>
-              Construir aplicaciones web personalizadas que se adaptan a las necesidades de tu negocio.
-            </p>
-          </div>
-
-          {/* Integración de APIs */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="service-card text-center py-8 px-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2"
-            style={cardStyle}
-          >
-            <img src={Integracion} alt="Integración de APIs" className="mx-auto mb-6 w-full h-48 object-cover rounded-lg" />
-            <h3 className="text-xl font-medium mb-4" style={{ color: '#2CFF05' }}>Integración de APIs</h3>
-            <p className="text-sm" style={{ color: '#fff' }}>
-              Integrar APIs de terceros para expandir las funcionalidades de tu aplicación.
-            </p>
-          </div>
-
-          {/* Soporte en cPanel */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="service-card text-center py-8 px-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2"
-            style={cardStyle}
-          >
-            <img src={Cpanel} alt="Soporte en cPanel" className="mx-auto mb-6 w-full h-48 object-cover rounded-lg" />
-            <h3 className="text-xl font-medium mb-4" style={{ color: '#2CFF05' }}>Soporte en cPanel</h3>
-            <p className="text-sm" style={{ color: '#fff' }}>
-              Soporte y mantenimiento en cPanel para garantizar el correcto funcionamiento de tu sitio.
-            </p>
-          </div>
-
-          {/* SEO para tu sitio web */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="service-card text-center py-8 px-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2"
-            style={cardStyle}
-          >
-            <img src={Seo} alt="SEO para tu sitio web" className="mx-auto mb-6 w-full h-48 object-cover rounded-lg" />
-            <h3 className="text-xl font-medium mb-4" style={{ color: '#2CFF05' }}>SEO para tu sitio web</h3>
-            <p className="text-sm" style={{ color: '#fff' }}>
-              Optimización SEO para mejorar la visibilidad de tu sitio web en motores de búsqueda.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay={service.delay}
+              className="bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center"
+            >
+              <div className="mb-6 p-4 bg-blue-50 rounded-full">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 flex-grow">
+                {service.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

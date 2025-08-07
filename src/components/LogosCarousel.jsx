@@ -1,187 +1,216 @@
-import React, { useState, useRef, useEffect } from "react";
+import  { useRef, useState } from "react";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// Importar logos (asegúrate de que las imágenes sean versiones en alta calidad)
 import Universidad1 from '../assets/up.jpg';
 import Universidad2 from '../assets/udellpa.png';
 import Universidad3 from '../assets/santander.png';
 import Universidad4 from '../assets/relatic.png';
-import Universidad5 from '../assets/portalcarteles.png';
 import Universidad6 from '../assets/metxi.png';
 import Universidad7 from '../assets/landing.png';
 import Universidad8 from '../assets/icuali.png';
 import Universidad9 from '../assets/hossana.png';
 import Universidad10 from '../assets/dialogos.png';
+import Universidad11 from '../assets/educaf5.jpeg';
+import Universidad12 from '../assets/crupe.png';
 
-const LogosCarousel = () => {
+const ClientsCarousel = () => {
   const sliderRef = useRef(null);
   const [autoPlay, setAutoPlay] = useState(true);
 
-  const links = [
-    "https://revistas.up.ac.pa/",
-    "https://udellpa.edu.pa/",
-    "https://usantander.edu.pa/",
-    "https://relaticpanama.org/_journals/",
-    "https://www.portaldecartelescientificos.org/",
-    "https://www.metxi.net/Metxi/",
-    "https://www.relaticpanama.org/",
-    "https://relaticpanama.org/_journals/index.php/icuali",
-    "https://uh.ac.pa/",
-    "https://relaticpanama.org/_journals/index.php/dialogoseducativos",
+  const clientProjects = [
+    {
+      logo: Universidad1,
+      link: "https://revistas.up.ac.pa/",
+      name: "Universidad de Panamá"
+    },
+    {
+      logo: Universidad2,
+      link: "https://udellpa.edu.pa/",
+      name: "UDELLPA"
+    },
+    {
+      logo: Universidad3,
+      link: "https://usantander.edu.pa/",
+      name: "Universidad Santander"
+    },
+    {
+      logo: Universidad4,
+      link: "https://relaticpanama.org/_journals/",
+      name: "Revistas Relatic"
+    },
+    {
+      logo: Universidad4,
+      link: "https://relaticpanama.org/_posters/",
+      name: "Carteles Digitales"
+    },
+    {
+      logo: Universidad6,
+      link: "https://www.metxi.net/Metxi/",
+      name: "METXI Network"
+    },
+    {
+      logo: Universidad7,
+      link: "https://www.relaticpanama.org/",
+      name: "Relatic Panama"
+    },
+    {
+      logo: Universidad8,
+      link: "https://relaticpanama.org/_journals/index.php/icuali",
+      name: "Revista ICUALI"
+    },
+    {
+      logo: Universidad9,
+      link: "https://uh.ac.pa/",
+      name: "Universidad Hosanna"
+    },
+    {
+      logo: Universidad10,
+      link: "https://relaticpanama.org/_journals/index.php/dialogoseducativos",
+      name: "Diálogos Educativos"
+    },
+    {
+      logo: Universidad11,
+      link: "https://relaticpanama.org/_journals/index.php/educaf5-berit",
+      name: "Educaf5-Berit"
+    },
+    {
+      logo: Universidad12,
+      link: "https://relaticpanama.org/_events/_crupe/",
+      name: "CRUPE"
+    }
   ];
 
   const toggleAutoPlay = () => {
-    setAutoPlay(prev => {
-      const newAutoPlay = !prev;
-      // Forzar la actualización del autoplay cuando cambia el estado
-      if (sliderRef.current) {
-        if (newAutoPlay) {
-          sliderRef.current.slickPlay(); // Reanudar el autoplay
-        } else {
-          sliderRef.current.slickPause(); // Pausar el autoplay
-        }
-      }
-      return newAutoPlay;
-    });
-  };
-
-  const next = () => {
-    sliderRef.current.slickNext();
-  };
-
-  const previous = () => {
-    sliderRef.current.slickPrev();
+    setAutoPlay(prev => !prev);
+    if (sliderRef.current) {
+      autoPlay ? sliderRef.current.slickPause() : sliderRef.current.slickPlay();
+    }
   };
 
   const settings = {
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: autoPlay,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 4,
-        },
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
-        },
+          slidesToShow: 2,
+        }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
-  const logos = [
-    Universidad1,
-    Universidad2,
-    Universidad3,
-    Universidad4,
-    Universidad5,
-    Universidad6,
-    Universidad7,
-    Universidad8,
-    Universidad9,
-    Universidad10,
-  ];
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: false,
-    });
-  }, []);
-
   return (
-    <div className="w-full py-16" style={{ background: '#111111' }}>
-      {/* Título sin animación */}
-      <h2 className="text-3xl text-center text-[#2CFF05] mb-8">
-        Proyectos realizados
-      </h2>
+    <section className="py-16 bg-gray-50 border-t border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+            <span className="text-blue-600">Clientes</span> Académicos
+          </h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Instituciones educativas y proyectos académicos que han confiado en mis soluciones
+          </p>
+        </div>
 
-      {/* Línea animada debajo del título */}
-      <div className="mt-2 mb-12 w-44 h-1 mx-auto overflow-hidden relative">
-        <div className="absolute w-full h-full animate-slide-line bg-[#2CFF05]"></div>
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-4">
-        <Slider ref={sliderRef} {...settings}>
-          {logos.map((logo, index) => (
-            <div key={index} className="px-2" data-aos="fade-up" data-aos-delay={index * 100}>
-              <div 
-                className="flex justify-center items-center p-4 rounded-lg shadow-md bg-[#2CFF05] bg-opacity-20"
-                style={{
-                  height: '160px', 
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
+        <div className="relative">
+          <Slider ref={sliderRef} {...settings}>
+            {clientProjects.map((project, index) => (
+              <div key={index} className="px-2">
                 <a 
-                  href={links[index]} 
+                  href={project.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full h-full flex justify-center items-center"
+                  className="block bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300 h-full border border-gray-100"
                 >
-                  <img
-                    src={logo}
-                    alt={`Logo ${index + 1}`}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'contain', 
-                      display: 'block',
-                      margin: '0 auto',
-                    }}
-                  />
+                  <div className="h-32 flex items-center justify-center mb-4 p-2 bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg">
+                    <img
+                      src={project.logo}
+                      alt={project.name}
+                      className="max-h-full max-w-full object-contain filter drop-shadow-sm"
+                      style={{
+                        filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.1)) contrast(1.05) brightness(0.98)'
+                      }}
+                    />
+                  </div>
+                  <h3 className="text-center text-gray-700 font-medium">
+                    {project.name}
+                  </h3>
                 </a>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
 
-        {/* Botón Anterior */}
-        <button
-          onClick={previous}
-          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_0_20px_#2CFF05]"
-        >
-          <FaArrowLeft size={20} />
-        </button>
+          <button
+            onClick={() => sliderRef.current.slickPrev()}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white p-3 rounded-full shadow-md text-gray-600 hover:text-blue-600 hover:shadow-lg z-10 transition-all"
+            aria-label="Anterior"
+          >
+            <FaArrowLeft size={18} />
+          </button>
 
-        {/* Botón Siguiente */}
-        <button
-          onClick={next}
-          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-[#2CFF05] p-2 rounded-full z-10 hover:bg-opacity-75 transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_0_20px_#2CFF05]"
-        >
-          <FaArrowRight size={20} />
-        </button>
+          <button
+            onClick={() => sliderRef.current.slickNext()}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white p-3 rounded-full shadow-md text-gray-600 hover:text-blue-600 hover:shadow-lg z-10 transition-all"
+            aria-label="Siguiente"
+          >
+            <FaArrowRight size={18} />
+          </button>
+        </div>
+
+        <div className="text-center mt-8">
+          <button
+            onClick={toggleAutoPlay}
+            className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all"
+          >
+            {autoPlay ? (
+              <>
+                <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                Pausar
+              </>
+            ) : (
+              <>
+                <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                </svg>
+                Reproducir
+              </>
+            )}
+          </button>
+        </div>
       </div>
-
-      {/* Botón de Play/Pause */}
-      <div className="text-center mt-8">
-        <button
-          onClick={toggleAutoPlay}
-          className="bg-white bg-opacity-20 hover:bg-opacity-30 text-[#2cff05] font-bold py-2 px-6 rounded-full transition duration-300 transform hover:-translate-y-2 hover:shadow-[0_0_20px_#2CFF05]"
-        >
-          {autoPlay ? '⏸ Pausar' : '▶ Reproducir'}
-        </button>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default LogosCarousel;
+export default ClientsCarousel;
