@@ -26,7 +26,7 @@ const Header = () => {
               <div className="w-24 h-1 bg-blue-600 mb-6 mx-auto md:mx-0"></div>
               
               <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-                Desarrollador de software enfocado en el diseño de soluciones digitales para la industria tecnológica, el ámbito académico y la investigación científica. Integro inteligencia artificial y tecnologías emergentes para desarrollar plataformas educativas e investigativas robustas, escalables y alineadas con los desafíos del conocimiento contemporáneo.
+                Desarrollador de software enfocado en el diseño de soluciones digitales para la industria tecnológica, el ámbito académico y la investigación científica. Integro herramientas de inteligencia artificial y tecnologías emergentes para desarrollar plataformas educativas e investigativas robustas, escalables y alineadas con los desafíos del conocimiento contemporáneo.
               </p>
             </div>
 

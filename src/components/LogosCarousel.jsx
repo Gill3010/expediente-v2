@@ -22,6 +22,11 @@ const ClientsCarousel = () => {
 
   const clientProjects = [
     {
+      logo: Universidad4,
+      link: "https://relaticpanama.org/_books/index.php/edrp/catalog",
+      name: "Aprendizaje Continuo"
+    },
+    {
       logo: Universidad1,
       link: "https://revistas.up.ac.pa/",
       name: "Universidad de Panamá"
@@ -42,11 +47,6 @@ const ClientsCarousel = () => {
       name: "Revistas Relatic"
     },
     {
-      logo: Universidad4,
-      link: "https://relaticpanama.org/_posters/",
-      name: "Carteles Digitales"
-    },
-    {
       logo: Universidad6,
       link: "https://www.metxi.net/Metxi/",
       name: "METXI Network"
@@ -60,6 +60,11 @@ const ClientsCarousel = () => {
       logo: Universidad8,
       link: "https://relaticpanama.org/_journals/index.php/icuali",
       name: "Revista ICUALI"
+    },
+    {
+      logo: Universidad4,
+      link: "https://relaticpanama.org/_books/index.php/edrp/catalog",
+      name: "Libros Digitales"
     },
     {
       logo: Universidad9,
@@ -80,7 +85,13 @@ const ClientsCarousel = () => {
       logo: Universidad12,
       link: "https://relaticpanama.org/_events/_crupe/",
       name: "CRUPE"
-    }
+    },
+    {
+      logo: Universidad4,
+      link: "https://relaticpanama.org/_posters/",
+      name: "Carteles Digitales"
+    },
+    
   ];
 
   const toggleAutoPlay = () => {

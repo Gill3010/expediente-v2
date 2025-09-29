@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FiSend, FiUser, FiMail, FiFileText } from 'react-icons/fi';
+import { ref, push } from 'firebase/database';
+import { database } from "../backend/firebaseConfig";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,26 +32,25 @@ const Contact = () => {
       setError(null);
       
       try {
-        const response = await fetch("https://innovaproyectos.org/api/submit.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-
-        const result = await response.json();
+        // Referencia a la ruta "formulario" en Firebase Realtime Database
+        const formularioRef = ref(database, 'formulario');
         
-        if (result.success) {
-          console.log("Enviado correctamente:", result.message);
-          setSubmitted(true);
-          setFormData({ name: '', email: '', subject: '' });
-          setTimeout(() => setSubmitted(false), 5000);
-        } else {
-          setError(result.error || "Error al enviar el formulario");
-          console.error("Error en el envío:", result.error);
-        }
+        // Agregar timestamp a los datos
+        const dataToSave = {
+          ...formData,
+          timestamp: new Date().toISOString(),
+        };
+        
+        // Guardar datos en Firebase usando push
+        await push(formularioRef, dataToSave);
+        
+        console.log("Enviado correctamente a Firebase");
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: '' });
+        setTimeout(() => setSubmitted(false), 5000);
       } catch (error) {
         setError("Error de conexión. Por favor intenta nuevamente.");
-        console.error("Error en la conexión:", error);
+        console.error("Error al guardar en Firebase:", error);
       } finally {
         setIsLoading(false);
       }
